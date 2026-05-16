@@ -1,5 +1,5 @@
 // Component Registry for Design System
-// Optimized for tree-shaking and micro-frontend usage
+const PKG = '@sdb/design-system'
 
 export type ComponentId =
   | 'button'
@@ -74,7 +74,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
       { name: 'Icon End', props: { variant: 'default', iconPosition: 'end' } },
       { name: 'Icon Only', props: { variant: 'outline', iconPosition: 'only' } },
     ],
-    importCode: `import { Button } from '@/components/ui/button'`,
+    importCode: `import { Button } from ${PKG}`,
   },
   card: {
     id: 'card',
@@ -92,7 +92,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
   CardDescription,
   CardContent,
   CardFooter,
-} from '@/components/ui/card'`,
+} from ${PKG}`,
   },
   modal: {
     id: 'modal',
@@ -112,7 +112,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
   DialogDescription,
   DialogFooter,
   DialogClose,
-} from '@/components/ui/dialog'`,
+} from ${PKG}`,
   },
   tabs: {
     id: 'tabs',
@@ -128,7 +128,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from '@/components/ui/tabs'`,
+} from ${PKG}`,
   },
   collapse: {
     id: 'collapse',
@@ -143,7 +143,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
-} from '@/components/ui/collapsible'`,
+} from ${PKG}`,
   },
 
   // Feedback Components
@@ -162,7 +162,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-} from '@/components/ui/tooltip'`,
+} from ${PKG}`,
   },
   toast: {
     id: 'toast',
@@ -176,7 +176,7 @@ export const componentRegistry: Record<ComponentId, ComponentDefinition> = {
       { name: 'Warning', props: { type: 'warning' } },
     ],
     importCode: `import { toast } from 'sonner'
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster } from ${PKG}
 
 // Add <Toaster /> to your layout
 // Then use: toast('Message') or toast.success('Success!')`,
@@ -194,7 +194,7 @@ import { Toaster } from '@/components/ui/sonner'
   Alert,
   AlertTitle,
   AlertDescription,
-} from '@/components/ui/alert'`,
+} from ${PKG}`,
   },
   spinner: {
     id: 'spinner',
@@ -206,7 +206,7 @@ import { Toaster } from '@/components/ui/sonner'
       { name: 'Medium', props: { size: 'md' } },
       { name: 'Large', props: { size: 'lg' } },
     ],
-    importCode: `import { Spinner } from '@/components/ui/spinner'`,
+    importCode: `import { Spinner } from ${PKG}`,
   },
   progress: {
     id: 'progress',
@@ -219,7 +219,7 @@ import { Toaster } from '@/components/ui/sonner'
       { name: '75%', props: { value: 75 } },
       { name: '100%', props: { value: 100 } },
     ],
-    importCode: `import { Progress } from '@/components/ui/progress'`,
+    importCode: `import { Progress } from ${PKG}`,
   },
 
   // Data Display Components
@@ -233,7 +233,7 @@ import { Toaster } from '@/components/ui/sonner'
       { name: 'Card', props: { type: 'card' } },
       { name: 'Avatar', props: { type: 'avatar' } },
     ],
-    importCode: `import { Skeleton } from '@/components/ui/skeleton'`,
+    importCode: `import { Skeleton } from ${PKG}`,
   },
   empty: {
     id: 'empty',
@@ -251,7 +251,7 @@ import { Toaster } from '@/components/ui/sonner'
   EmptyDescription,
   EmptyContent,
   EmptyMedia,
-} from '@/components/ui/empty'`,
+} from ${PKG}`,
   },
   badge: {
     id: 'badge',
@@ -264,7 +264,7 @@ import { Toaster } from '@/components/ui/sonner'
       { name: 'Destructive', props: { variant: 'destructive' } },
       { name: 'Outline', props: { variant: 'outline' } },
     ],
-    importCode: `import { Badge } from '@/components/ui/badge'`,
+    importCode: `import { Badge } from ${PKG}`,
   },
   calendar: {
     id: 'calendar',
@@ -275,7 +275,7 @@ import { Toaster } from '@/components/ui/sonner'
       { name: 'Single Date', props: { mode: 'single' } },
       { name: 'Range', props: { mode: 'range' } },
     ],
-    importCode: `import { Calendar } from '@/components/ui/calendar'`,
+    importCode: `import { Calendar } from ${PKG}`,
   },
 
   // Form Fields
@@ -290,8 +290,7 @@ import { Toaster } from '@/components/ui/sonner'
       { name: 'Password', props: { type: 'password' } },
       { name: 'Disabled', props: { type: 'text', disabled: true } },
     ],
-    importCode: `import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'`,
+    importCode: `import { Input, Label } from ${PKG}`,
   },
   'form-textarea': {
     id: 'form-textarea',
@@ -302,8 +301,7 @@ import { Label } from '@/components/ui/label'`,
       { name: 'Default', props: {} },
       { name: 'Disabled', props: { disabled: true } },
     ],
-    importCode: `import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'`,
+    importCode: `import { Textarea, Label } from ${PKG}`,
   },
   'form-select': {
     id: 'form-select',
@@ -322,7 +320,7 @@ import { Label } from '@/components/ui/label'`,
   SelectValue,
   SelectGroup,
   SelectLabel,
-} from '@/components/ui/select'`,
+} from ${PKG}`,
   },
   'form-checkbox': {
     id: 'form-checkbox',
@@ -333,8 +331,7 @@ import { Label } from '@/components/ui/label'`,
       { name: 'Unchecked', props: { checked: false } },
       { name: 'Checked', props: { checked: true } },
     ],
-    importCode: `import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'`,
+    importCode: `import { Checkbox, Label } from ${PKG}`,
   },
   'form-radio': {
     id: 'form-radio',
@@ -345,8 +342,7 @@ import { Label } from '@/components/ui/label'`,
       { name: 'Vertical', props: { orientation: 'vertical' } },
       { name: 'Horizontal', props: { orientation: 'horizontal' } },
     ],
-    importCode: `import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'`,
+    importCode: `import { RadioGroup, RadioGroupItem, Label } from ${PKG}`,
   },
   'form-switch': {
     id: 'form-switch',
@@ -357,8 +353,7 @@ import { Label } from '@/components/ui/label'`,
       { name: 'Off', props: { checked: false } },
       { name: 'On', props: { checked: true } },
     ],
-    importCode: `import { Switch } from '@/components/ui/switch'
-import { Label } from '@/components/ui/label'`,
+    importCode: `import { Switch, Label } from ${PKG}`,
   },
 }
 
